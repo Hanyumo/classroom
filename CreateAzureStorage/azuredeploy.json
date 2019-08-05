@@ -15,6 +15,17 @@
         "description": "Storage Account type"
       }
     },
+    "resourcegroupLocation": {
+        "type": "string",
+        "defaultValue": "ukwest",
+        "allowedValues": [
+            "ukwest",
+            "uksouth"
+        ],
+        "metadata": {
+            "description" :   "Server location"
+        }
+      },
     "administratorLogin": {
         "type": "string",
         "minLength": 1,
@@ -98,11 +109,7 @@
     },
     "location": {
       "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "allowedValues": [
-        "ukwest",
-        "uksouth"
-    ],
+      "defaultValue": "[parameters('resourcegroupLocation')]",
       "metadata": {
         "description": "Location for all resources."
       }
