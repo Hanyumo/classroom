@@ -17,7 +17,7 @@ steps:
     resourceGroupName: 'yumoPipeline'
     location: 'UK South'
     templateLocation: 'Linked artifact'
-    csmFile: 'CreateAzureStorage/azuredeploy.json'
+    csmFile: 'azuredeploy.json'
     deploymentMode: 'Incremental'
 
 - script:
