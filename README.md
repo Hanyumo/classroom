@@ -260,8 +260,8 @@ We strongly encourage you to use [https://classroom.github.com](https://classroo
 There are a few environment variables you will need to know in order to get Classroom working on production.
 
 ### ARM template test
-<a href="https://azuredeploy.net/" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsavjani%2Fazure-quickstart-templates%2Fmaster%2F101-webapp-linux-airflow-postgresql%2Fazuredeploy.json" target="_blank">
+  <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
 ### Production environment variables
