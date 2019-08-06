@@ -71,7 +71,7 @@
         },
         "location": {
             "type": "string",
-            "defaultValue": "[resourceGroup().location]",
+            "value": "uksouth",
             "metadata": {
               "description": "Location for all resources."
             }
