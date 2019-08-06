@@ -1,8 +1,7 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        
+    "parameters": {        
         "skuName": {
             "type": "string",
             "defaultValue": "F1",
@@ -71,11 +70,18 @@
         },
         "location": {
             "type": "string",
-            "value": "uksouth",
+            "defaultValue": "West Europe",
+            "allowedValues": [
+                "South Central US",
+                "North Europe",
+                "West Europe",
+                "Southeast Asia",
+                "UK West"
+            ],
             "metadata": {
-              "description": "Location for all resources."
+                "description": "Location for all resources."
             }
-          }
+        }
     },
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
