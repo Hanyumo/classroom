@@ -150,12 +150,46 @@
             "metadata": {
                 "description": "Azure database for PostgreSQL sku family"
             }
-        }
+        },
+
+
+        "appServiceSku": {
+            "type": "string",
+            "defaultValue": "B1",
+            "metadata": {
+              "description": "The SKU of App Service Plan "
+            }
+          },
+          "dockerImageName": {
+            "type": "string",
+            "defaultValue": "_MY_REGISTRY_USERNAME_.azurecr.io/_MY_NAMESPACE_/_MY_DOCKER_IMAGE_NAME_:_TAG_"
+          },
+          "dockerRegistryUrl": {
+            "type": "string",
+            "defaultValue": "https://_MY_REGISTRY_USERNAME_.azurecr.io"
+          },
+          "dockerRegistryUsername": {
+            "type": "string",
+            "defaultValue": "_MY_REGISTRY_USERNAME_"
+          },
+          "dockerRegistryPassword": {
+            "type": "string",
+            "defaultValue": "_MY_REGISTRY_PSW_"
+          },
+          "_artifactsLocation": {
+            "type": "string"
+          },
+          "_artifactsLocationSasToken": {
+            "type": "securestring"
+          }
     },
     "variables": {
         "databaseName": "[concat(parameters('siteName'), 'database')]",
         "serverName": "[concat(parameters('siteName'), 'pgserver')]",
-        "hostingPlanName": "[concat(parameters('siteName'), 'serviceplan')]"
+        "hostingPlanName": "[concat(parameters('siteName'), 'serviceplan')]",
+
+        "webAppPortalName": "[concat(parameters('siteName'), parameters('environment'), '-webapp')]",
+        "appServicePlanName": "[parameters('siteName'), parameters('environment'),'-hosting')]"
     },
     "resources": [
         {
@@ -184,6 +218,28 @@
             ],
             "properties": {
                 "name": "[parameters('siteName')]",
+                "siteConfig": {
+                    "linuxFxVersion": "[concat('DOCKER|', parameters('dockerImageName'))]",
+                    "alwaysOn": true,
+                    "appSettings": [
+                      {
+                        "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
+                        "value": "false"
+                      },
+                      {
+                        "name": "DOCKER_REGISTRY_SERVER_URL",
+                        "value": "[parameters('dockerRegistryUrl')]"
+                      },
+                      {
+                        "name": "DOCKER_REGISTRY_SERVER_USERNAME",
+                        "value": "[parameters('dockerRegistryUsername')]"
+                      },
+                      {
+                        "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
+                        "value": "[parameters('dockerRegistryPassword')]"
+                      }
+                    ]
+                  },
                 "serverFarmId": "[variables('hostingPlanName')]",
                 "hostingEnvironment": ""
             },
