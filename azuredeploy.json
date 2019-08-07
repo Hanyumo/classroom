@@ -70,7 +70,6 @@
         },
         "location": {
             "type": "string",
-            "defaultValue": "uksouth",
             "allowedValues": [
                 "australiacentral",
                 "australiaeast",
