@@ -197,7 +197,7 @@
           },
           "createMode": "Default"
         },
-        "location": "string",
+        "location": "object",
         "tags": {},
         "resources": []
       }
