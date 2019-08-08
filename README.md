@@ -260,7 +260,7 @@ We strongly encourage you to use [https://classroom.github.com](https://classroo
 There are a few environment variables you will need to know in order to get Classroom working on production.
 
 ### ARM template test
-<a href="https://azuredeploy.net/" target="_blank">
+<a href="https://shell.azure.com/" target="_blank">
     <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
 
